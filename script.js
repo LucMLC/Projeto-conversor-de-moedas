@@ -1,16 +1,12 @@
-
-
-
 const convertButton = document.querySelector(".convert-button")
 const currencySelect = document.querySelector(".currency-select")
-function convertValues() { //3
-   const inputCurrencyValue = document.querySelector(".input-currency").value //4 para pegar so o valor do input
+const currencySelectUm = document.querySelector(".currency-select-um")
 
-   const currencyValueToConvert = //Valor em real
-      document.querySelector(".currency-value-to-convert")
+function convertValues() {
+   const inputCurrencyValue = document.querySelector(".input-currency").value
 
-   const currencyValueConvert = //Valor convertido
-      document.querySelector(".currency-value")
+   const currencyValueConvert = document.querySelector(".currency-value")
+   const currencyValueToConvert = document.querySelector(".currency-value-to-convert")
 
    const dolarToday = 4.96
    const euroToday = 5.44
@@ -22,65 +18,94 @@ function convertValues() { //3
          style: "currency",
          currency: "USD"
       }).format(inputCurrencyValue / dolarToday)
-   }
-
-   if (currencySelect.value == "euro") {
+   } else if (currencySelect.value == "euro") {
       currencyValueConvert.innerHTML = new Intl.NumberFormat("de-DE", {
          style: "currency",
          currency: "EUR"
       }).format(inputCurrencyValue / euroToday)
-   }
-
-
-   currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-      style: "currency",
-      currency: "BRL"
-   }).format(inputCurrencyValue)
-
-   if (currencySelect.value == "libra") {
+   } else if (currencySelect.value == "libra") {
       currencyValueConvert.innerHTML = new Intl.NumberFormat("gd-ES", {
          style: "currency",
          currency: "GBP"
       }).format(inputCurrencyValue / libraToday)
-   }
-
-   if (currencySelect.value == "bitcoin") {
+   } else if (currencySelect.value == "bitcoin") {
       currencyValueConvert.innerHTML = new Intl.NumberFormat("en-US", {
          style: "currency",
          currency: "BTC"
       }).format(inputCurrencyValue / bitcoinToday)
    }
 
+   if (currencySelectUm.value == "dolar") {
+      currencyValueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
+         style: "currency",
+         currency: "USD"
+      }).format(inputCurrencyValue);
+   } else if (currencySelectUm.value == "euro") {
+      currencyValueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
+         style: "currency",
+         currency: "EUR"
+      }).format(inputCurrencyValue);
+   } else if (currencySelectUm.value == "real") {
+      currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
+         style: "currency",
+         currency: "BRL"
+      }).format(inputCurrencyValue);
+   } else if (currencySelectUm.value == "libra") {
+      currencyValueToConvert.innerHTML = new Intl.NumberFormat("gd-ES", {
+         style: "currency",
+         currency: "GBP"
+      }).format(inputCurrencyValue);
+   } else if (currencySelectUm.value == "bitcoin") {
+      currencyValueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
+         style: "currency",
+         currency: "BTC"
+      }).format(inputCurrencyValue);
+   }
 }
 
-function changeCurrency(){
+function changeCurrency() {
+   const currencyName = document.getElementById("currency-name")
+   const currencyImage = document.getElementById("currency-img")
+   const currencyNameUm = document.getElementById("currency-nameum")
+   const currencyImageUm = document.getElementById("currency-img-um")
 
-const currencyName = document.getElementById("currency-name")
-const currencyImage = document.querySelector(".currency-img")
+   if (currencySelectUm.value === "dolar") {
+      currencyNameUm.innerHTML = "Dólar Americano"
+      currencyImageUm.src = "./assets/dolar.png"
+   } else if (currencySelectUm.value === "euro") {
+      currencyNameUm.innerHTML = "Euro"
+      currencyImageUm.src = "./assets/euro.png"
+   } else if (currencySelectUm.value === "libra"){
+      currencyNameUm.innerHTML = "Libra"
+      currencyImageUm.src = "./assets/libra.png"
+   } else if (currencySelectUm.value === "bitcoin"){
+      currencyNameUm.innerHTML = "Bitcoin";      currencyImageUm.src = "./assets/bitcoin.png";
+   } else if (currencySelectUm.value === "real") {
+      currencyNameUm.innerHTML = "Real Brasileiro";
+      currencyImageUm.src = "./assets/real.png";
+   }
+   convertValues();
+   if (currencySelect.value === "dolar") {
+      currencyName.innerHTML = "Dólar Americano";
+      currencyImage.src = "./assets/dolar.png";
+   } else if (currencySelect.value === "euro") {
+      currencyName.innerHTML = "Euro";
+      currencyImage.src = "./assets/euro.png";
+   } else if (currencySelect.value === "libra") {
+      currencyName.innerHTML = "Libra";
+      currencyImage.src = "./assets/libra.png";
+   } else if (currencySelect.value === "bitcoin") {
+      currencyName.innerHTML = "Bitcoin";
+      currencyImage.src = "./assets/bitcoin.png";
+   } else if (currencySelect.value === "real") {
+      currencyName.innerHTML = "Real Brasileiro";
+      currencyImage.src = "./assets/real.png";
+   }
+   convertValues();
 
-if (currencySelect.value == "dolar"){
-   currencyName.innerHTML = "Dólar Americano"
-   currencyImage.src = "./assets/dolar.png"
-} 
-
-if (currencySelect.value == "euro"){
-   currencyName.innerHTML = "Euro"
-   currencyImage.src = "./assets/euro.png"
-} 
-
-if (currencySelect.value == "libra"){
-   currencyName.innerHTML = "Libra"
-   currencyImage.src = "./assets/libra.png"
-} 
-
-if (currencySelect.value == "bitcoin"){
-   currencyName.innerHTML = "Bitcoin"
-   currencyImage.src = "./assets/bitcoin.png"
-} 
-
-convertValues()
+   
 }
 
-currencySelect.addEventListener("change", changeCurrency )
-convertButton.addEventListener("click", convertValues) //2 Este é um ouvinte de eventos, ou seja quando eu clicar no meu botão ele irá chamar
-// a minha função criada acima, e traves do console.log irá mostrar cada vez que eu clicar a msg funcionou
+currencySelectUm.addEventListener("change", changeCurrency);
+currencySelect.addEventListener("change", changeCurrency);
+convertButton.addEventListener("click", convertValues);

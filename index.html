@@ -25,10 +25,12 @@
 
             <label>
                 Converter <b> de</b>
-                <select>
-                    <option>
-                        R$ Real brasileiro
-                    </option>
+                <select class="currency-select-um">
+                    <option value="real">R$ Real brasileiro</option>
+                    <option value="dolar">US$ Dólar Americano</option>
+                    <option value="euro">€ Euro</option>
+                    <option value="libra">£ Libra</option>
+                    <option value="bitcoin">₿ Bitcoin</option>
                 </select>
             </label>
 
@@ -37,6 +39,7 @@
             </label>
 
             <select class="currency-select">
+                <option value="real">R$ Real brasileiro</option>
                 <option value="dolar">US$ Dólar Americano</option>
                 <option value="euro">€ Euro</option>
                 <option value="libra">£ Libra</option>
@@ -53,16 +56,16 @@
             <section>
 
                 <div class="currency-box">
-                    <img src="./assets/real.png" alt="moeda a converter">
-                    <p class="currency">Real</p>
+                    <img class="currency-img-um" id="currency-img-um" src="./assets/real.png" alt="moeda a converter">
+                    <p class="currency" id="currency-nameum">Real</p>
                     <p class="currency-value-to-convert">R$ 0,00</p>
                 </div>
 
                 <img class="arrow-img" src="./assets/arrow.png" alt="seta">
                 <div class="currency-box">
-                    <img class="currency-img" src="./assets/dolar.png" alt="moeda convertida">
+                    <img class="currency-img" id="currency-img" src="./assets/dolar.png" alt="moeda convertida">
                     <p class="currency" id="currency-name">Dólar Americano</p>
-                    <p class="currency-value">$ 0.0</p>
+                    <p class="currency-value" >$ 0.0</p>
                 </div>
             </section>
         </main>
