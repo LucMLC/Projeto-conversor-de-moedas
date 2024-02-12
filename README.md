@@ -25,8 +25,7 @@ inserir o valor a ser convertido e obter o resultado instantaneamente.</p>
 obtendo os resultados de forma rápida e precisa.</li>
 <li><strong>Ampla Variedade de Moedas:</strong> O conversor suporta uma ampla variedade de moedas internacionais,
 permitindo aos usuários converter entre diferentes unidades monetárias.</li>
-<li><strong>Atualizações Automáticas das Taxas de Câmbio:</strong> As taxas de câmbio são atualizadas automaticamente,
-garantindo que os usuários tenham acesso às informações mais recentes.</li>
+
 </ol>
 
 <h2>Como Executar o Projeto Localmente</h2>
@@ -45,8 +44,7 @@ garantindo que os usuários tenham acesso às informações mais recentes.</li>
 <ul>
 <li>HTML5: Utilizado para a estruturação do conteúdo da aplicação.</li>
 <li>CSS3: Utilizado para estilizar os elementos da aplicação e torná-la visualmente atraente.</li>
-<li>JavaScript: Utilizado para adicionar interatividade à aplicação, como a lógica de conversão e a integração com
-APIs de terceiros.</li>
+<li>JavaScript: Utilizado para adicionar interatividade à aplicação, como a lógica de conversão.</li>
 </ul>
 
 <h2>Contribuindo</h2>
